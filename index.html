@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - Açaí Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-ice-cream"></i>
+                    <h1>Açaí Delivery</h1>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="banner">
+            <h2>Eno Açai</h2>
+            <p>Entrega rápida e fresquinha</p>
+        </div>
+
+        <h2 class="section-title">Cardápio</h2>
+        <div class="menu">
+            <!-- Açaí Tradicional -->
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://soubh.uai.com.br/wp-content/uploads/2025/02/Acai-Bom-Gosto-capa-860x1266.jpg');"></div>
+                <div class="item-info">
+                    <h3>Açaí Tradicional</h3>
+                    <p>Açaí puro batido na hora, cremoso e saboroso.</p>
+                    
+                    <div class="size-options">
+                        <button class="size-btn selected" data-price="12" onclick="selectSize(this, 12)">300ml</button>
+                        <button class="size-btn" data-price="18" onclick="selectSize(this, 18)">500ml</button>
+                        <button class="size-btn" data-price="30" onclick="selectSize(this, 30)">1L</button>
+                    </div>
+                    
+                    <div class="complementos">
+                        <p class="complementos-title">Complementos (+R$ 2,00 cada):</p>
+                        <div class="complementos-list">
+                            <span class="complemento" onclick="toggleComplemento(this)">Granola</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Banana</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Morango</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Cond.</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Paçoca</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Ninho</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-container">
+                        <span class="price">R$ 12,00</span>
+                        <button class="add-btn" onclick="addToCart(this)">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Açaí com Frutas -->
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://soubh.uai.com.br/wp-content/uploads/2025/02/Acai-Bom-Gosto-capa-860x1266.jpg');"></div>
+                <div class="item-info">
+                    <h3>Açaí com Frutas</h3>
+                    <p>Açaí cremoso com mix de frutas frescas.</p>
+                    
+                    <div class="size-options">
+                        <button class="size-btn selected" data-price="15" onclick="selectSize(this, 15)">300ml</button>
+                        <button class="size-btn" data-price="22" onclick="selectSize(this, 22)">500ml</button>
+                        <button class="size-btn" data-price="35" onclick="selectSize(this, 35)">1L</button>
+                    </div>
+                    
+                    <div class="complementos">
+                        <p class="complementos-title">Complementos (+R$ 2,00 cada):</p>
+                        <div class="complementos-list">
+                            <span class="complemento" onclick="toggleComplemento(this)">Granola</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Banana</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Morango</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Cond.</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Paçoca</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Ninho</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-container">
+                        <span class="price">R$ 15,00</span>
+                        <button class="add-btn" onclick="addToCart(this)">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Açaí Protein -->
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://soubh.uai.com.br/wp-content/uploads/2025/02/Acai-Bom-Gosto-capa-860x1266.jpg');"></div>
+                <div class="item-info">
+                    <h3>Açaí Protein</h3>
+                    <p>Açaí com whey protein, ideal para pós-treino.</p>
+                    
+                    <div class="size-options">
+                        <button class="size-btn selected" data-price="18" onclick="selectSize(this, 18)">300ml</button>
+                        <button class="size-btn" data-price="25" onclick="selectSize(this, 25)">500ml</button>
+                        <button class="size-btn" data-price="40" onclick="selectSize(this, 40)">1L</button>
+                    </div>
+                    
+                    <div class="complementos">
+                        <p class="complementos-title">Complementos (+R$ 2,00 cada):</p>
+                        <div class="complementos-list">
+                            <span class="complemento" onclick="toggleComplemento(this)">Granola</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Banana</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Morango</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Cond.</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Paçoca</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Ninho</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-container">
+                        <span class="price">R$ 18,00</span>
+                        <button class="add-btn" onclick="addToCart(this)">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Açaí Zero Açúcar -->
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://soubh.uai.com.br/wp-content/uploads/2025/02/Acai-Bom-Gosto-capa-860x1266.jpg');"></div>
+                <div class="item-info">
+                    <h3>Açaí Zero Açúcar</h3>
+                    <p>Açaí sem adição de açúcar, adoçado naturalmente.</p>
+                    
+                    <div class="size-options">
+                        <button class="size-btn selected" data-price="16" onclick="selectSize(this, 16)">300ml</button>
+                        <button class="size-btn" data-price="23" onclick="selectSize(this, 23)">500ml</button>
+                        <button class="size-btn" data-price="38" onclick="selectSize(this, 38)">1L</button>
+                    </div>
+                    
+                    <div class="complementos">
+                        <p class="complementos-title">Complementos (+R$ 2,00 cada):</p>
+                        <div class="complementos-list">
+                            <span class="complemento" onclick="toggleComplemento(this)">Granola</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Banana</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Morango</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Cond.</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Paçoca</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Ninho</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-container">
+                        <span class="price">R$ 16,00</span>
+                        <button class="add-btn" onclick="addToCart(this)">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Açaí Energético -->
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://soubh.uai.com.br/wp-content/uploads/2025/02/Acai-Bom-Gosto-capa-860x1266.jpg');"></div>
+                <div class="item-info">
+                    <h3>Açaí Energético</h3>
+                    <p>Açaí com guaraná em pó và mel, para mais energia.</p>
+                    
+                    <div class="size-options">
+                        <button class="size-btn selected" data-price="17" onclick="selectSize(this, 17)">300ml</button>
+                        <button class="size-btn" data-price="24" onclick="selectSize(this, 24)">500ml</button>
+                        <button class="size-btn" data-price="39" onclick="selectSize(this, 39)">1L</button>
+                    </div>
+                    
+                    <div class="complementos">
+                        <p class="complementos-title">Complementos (+R$ 2,00 cada):</p>
+                        <div class="complementos-list">
+                            <span class="complemento" onclick="toggleComplemento(this)">Granola</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Banana</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Morango</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Cond.</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Paçoca</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Ninho</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-container">
+                        <span class="price">R$ 17,00</span>
+                        <button class="add-btn" onclick="addToCart(this)">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Açaí Premium -->
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://soubh.uai.com.br/wp-content/uploads/2025/02/Acai-Bom-Gosto-capa-860x1266.jpg');"></div>
+                <div class="item-info">
+                    <h3>Açaí Premium</h3>
+                    <p>Açaí especial com todos os complementos inclusos.</p>
+                    
+                    <div class="size-options">
+                        <button class="size-btn selected" data-price="20" onclick="selectSize(this, 20)">300ml</button>
+                        <button class="size-btn" data-price="28" onclick="selectSize(this, 28)">500ml</button>
+                        <button class="size-btn" data-price="45" onclick="selectSize(this, 45)">1L</button>
+                    </div>
+                    
+                    <div class="complementos">
+                        <p class="complementos-title">Complementos (+R$ 2,00 cada):</p>
+                        <div class="complementos-list">
+                            <span class="complemento" onclick="toggleComplemento(this)">Granola</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Banana</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Morango</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Cond.</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Paçoca</span>
+                            <span class="complemento" onclick="toggleComplemento(this)">Leite Ninho</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-container">
+                        <span class="price">R$ 20,00</span>
+                        <button class="add-btn" onclick="addToCart(this)">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho de Compras -->
+    <!-- Carrinho de Compras -->
+<div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+        <h2><i class="fas fa-shopping-bag"></i> Minha Sacola</h2>
+        <button class="close-cart" onclick="toggleCart()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="cart-items" id="cart-items">
+        <div class="empty-cart">
+            <i class="fas fa-shopping-cart" style="font-size: 48px; margin-bottom: 16px;"></i>
+            <p>Sua sacola está vazia</p>
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total">R$ 0,00</span>
+        </div>
+
+        <!-- Opções de pagamento -->
+        <div class="payment-options">
+            <p><strong>Forma de pagamento:</strong></p>
+            <div class="option-cards">
+                <label class="option-card">
+                    <input type="radio" name="payment" value="Cartão" checked>
+                    <i class="fas fa-credit-card"></i> Cartão
+                </label>
+                <label class="option-card">
+                    <input type="radio" name="payment" value="Pix">
+                    <i class="fas fa-qrcode"></i> Pix
+                </label>
+                <label class="option-card">
+                    <input type="radio" name="payment" value="Dinheiro">
+                    <i class="fas fa-money-bill-wave"></i> Dinheiro
+                </label>
+            </div>
+        </div>
+
+        <!-- Entrega ou retirada -->
+        <div class="delivery-options">
+            <p><strong>Entrega ou Retirada:</strong></p>
+            <div class="option-cards">
+                <label class="option-card">
+                    <input type="radio" name="delivery" value="Retirar" checked onchange="toggleDelivery()">
+                    <i class="fas fa-store"></i> Retirar
+                </label>
+                <label class="option-card">
+                    <input type="radio" name="delivery" value="Entrega" onchange="toggleDelivery()">
+                    <i class="fas fa-truck"></i> Entrega
+                </label>
+            </div>
+
+            <div id="delivery-address" class="hidden">
+                <input type="text" id="address-input" placeholder="Digite seu endereço">
+            </div>
+            <div id="pickup-address" class="info-address">
+                Endereço da loja: Rua Cascais 385
+            </div>
+        </div>
+
+        <div class="cart-actions">
+            <button class="clear-btn" onclick="clearCart()"><i class="fas fa-trash"></i> Limpar Sacola</button>
+            <button class="checkout-btn"><i class="fas fa-paper-plane"></i> Finalizar Pedido</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
